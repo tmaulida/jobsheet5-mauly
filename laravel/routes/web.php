@@ -21,6 +21,9 @@ Route::get('/', [SiswaController::class, 'index'])->name('siswa.index');
 Route::get('/siswa/delete/{id}', [SiswaController::class, 'destroy']);
 Route::get('/siswa/create', [SiswaController::class, 'create']);
 Route::post('/siswa', [SiswaController::class, 'store']);
+Route::get('/siswa/edit/{id}', [SiswaController::class, 'edit'])->name('siswa.edit');
+Route::put('/siswa/update}', [SiswaController::class, 'update'])->name('siswa.update');
+
 
 
 Route::get('/wali_murid', [WaliMuridController::class, 'index'])->name('wali.index');
