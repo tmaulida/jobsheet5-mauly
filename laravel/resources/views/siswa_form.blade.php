@@ -19,7 +19,7 @@
         @endif
 
       @if (isset($siswa))
-          <from method="POST" action="/siswa/update/{{ $siswa->id }}">
+          <form method="POST" action="/siswa/update">
             @method('PUT')
       @else
         <form method="POST" action="/siswa">
@@ -30,12 +30,12 @@
             @endif
             <div class="mb-3">
                 <label for="nis" class="form-label">NIS</label>
-                <input type="text" class="form-control" name="nis" value="{{ old('name', $siswa->nis?? '')}}" required>
+                <input type="text" class="form-control" name="nis" value="{{ old('name', $siswa->nis ?? '')}}" required>
             </div>
 
             <div class="mb-3">
                 <label for="nama_siswa" class="form-label">Nama Siswa</label>
-                <input type="text" class="form-control" name="nama_siswa" value="{{ old('name', $siswa->nama_siswa?? '')}}" required>
+                <input type="text" class="form-control" name="nama_siswa" value="{{ old('name', $siswa->nama ?? '')}}" required>
             </div>
 
             <div class="mb-3">
@@ -48,12 +48,12 @@
 
             <div class="mb-3">
                 <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
-               <input type="text" class="form-control" name="tempat_lahir" value="{{ old('name', $siswa->tempat_lahir?? '')}} "required>
+               <input type="text" class="form-control" name="tempat_lahir" value="{{ old('name', $siswa->tempat_lahir ?? '')}} "required>
             </div>
 
             <div class="mb-3">
                 <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
-                <input type="date" class="form-control" name="tanggal_lahir" value="{{ old('name', $siswa->tanggal_lahir?? '')}}" required>
+                <input type="date" class="form-control" name="tanggal_lahir" value="{{ old('name', $siswa->tanggal_lahir ?? '')}}" required>
             </div>
 
             <div class="mb-3">
@@ -69,14 +69,15 @@
                 <label for="id_wali" class="form-label">Wali Murid</label>
                 <select class="form-select" id="id_wali" name="id_wali" required>
                     @foreach($wali as $w)
-                        <option value="{{$w->id}}"{{ old ('wali', $siswa->id_wali ?? '') ==  $k->id ? 'selected':''}} >{{ $w->nama_wali}}</option>
+                        <option value="{{$w->id}}"{{ old ('wali', $siswa->id_wali ?? '') ==  $w->id ? 'selected':''}} >{{ $w->nama_wali}}</option>
                     @endforeach
                 </select>
             </div>
 
-            <button type="submit" name="submit" class="btn btn-success">Simpan</button>
+            <button type="submit" class="btn btn-success">Simpan</button>
             <a href="/" class="btn btn-secondary">Kembali</a>
         </form>
+</form>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>

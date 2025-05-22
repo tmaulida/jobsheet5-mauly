@@ -75,11 +75,11 @@ class SiswaController extends Controller
 
     return view('siswa_form', ['siswa' => $siswa, 'kelas' => $kelas, 'wali' => $wali]);
   }
- public function update(Request $request,)
+ public function update(Request $request)
     {
         $request->validate([
             'id' => 'required |numeric',
-            'nis' => 'required |unique:siswa,id,'.$request->id,
+            'nis' => 'required',
             'nama_siswa' => 'required',
             'jenis_kelamin' => 'required',
             'tempat_lahir' => 'required',
